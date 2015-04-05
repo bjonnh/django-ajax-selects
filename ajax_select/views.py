@@ -75,6 +75,6 @@ def add_popup(request, app_label, model):
                 out = response.content
         except AttributeError:  # django < 1.5
             out = response.content
-        if 'opener.dismissAddAnotherPopup' in out:
+        if 'opener.dismissAddAnotherPopup' in str(out):
             return HttpResponse(out.replace('dismissAddAnotherPopup', 'didAddPopup'))
     return response
